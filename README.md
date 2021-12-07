@@ -46,6 +46,14 @@ RewriteRule (.*) http://www.domain.com/$1 [R=301,L]
 </IfModule>
 ```
 
+# Removing trailing slash
+```
+<IfModule mod_rewrite.c>
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/$ /$1 [L,R=301]
+</IfModule>
+```
+
 -------------------------------------------------------------
 
 # Remove .php extension from URL
